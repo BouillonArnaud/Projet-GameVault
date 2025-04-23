@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS Jeux (
     nom_jeu VARCHAR(50) NOT NULL,
     plateforme VARCHAR(50) NOT NULL,
     edition_jeu VARCHAR(50) NOT NULL,
+    date_sortie date,
     id_editeur INT NOT NULL,
     PRIMARY KEY (id_jeu),
     CONSTRAINT fk_jeux_editeur
@@ -132,12 +133,12 @@ INSERT INTO Utilisateur (nom_utilisateur, email, hash_mot_de_passe, date_naissan
 ('jdupont', 'jean.dupont@mail.com', '$2a$10$yH9zCgZaKVBXUO6WZ7Q1UeR9XQY9JkZf8XoLz5d3YvJ3kLm1Xo9ZC', '1992-07-22', 'standard'),
 ('mgamer', 'marie.gamer@mail.com', '$2a$10$zT8wEhZrNXBVpO7Xa6r2UuS9vWX5KlYg9YoP3q4sRtJ2lL5uBv1Cd', '1998-11-03', 'standard');
 
-INSERT INTO Jeux (nom_jeu, plateforme, edition_jeu, id_editeur) VALUES
-('Assassin''s Creed Valhalla', 'PS5', 'Édition Standard', 2),
-('The Legend of Zelda: Tears of the Kingdom', 'Switch', 'Édition Standard', 3),
-('FIFA 23', 'Xbox Series X', 'Édition Ultimate', 1),
-('God of War Ragnarök', 'PS5', 'Édition Collector', 4),
-('Call of Duty: Modern Warfare II', 'PC', 'Édition Vault', 5);
+INSERT INTO Jeux (nom_jeu, plateforme, edition_jeu, date_sortie, id_editeur) VALUES
+('Assassin''s Creed Valhalla', 'PS5', 'Édition Standard','2026-01-01', 2),
+('The Legend of Zelda: Tears of the Kingdom', 'Switch','Édition Standard','2024-09-12', 3),
+('FIFA 23', 'Xbox Series X', 'Édition Ultimate','2024-09-12', 1),
+('God of War Ragnarök', 'PS5', 'Édition Collector','2024-09-12', 4),
+('Call of Duty: Modern Warfare II', 'PC', 'Édition Vault','2024-09-12', 5);
 
 INSERT INTO Genre_jeu (id_jeu, id_genre) VALUES
 (1, 1), (1, 2), (1, 7),

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Profil - GameVault</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Global settings */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f4f7fb;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          #000000,
+          #ff3333
+        ); /* Dégradé du noir au rouge */
+        color: white;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      header h1 {
+        font-size: 2rem;
+        margin: 0;
+        font-weight: 600;
+      }
+
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: center;
+        background-color: #2d2d2d;
+        padding: 15px 0;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 15px 30px;
+        font-weight: 600;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        border-radius: 4px;
+      }
+
+      .navbar a:hover {
+        background-color: #ff3333; /* Rouge vif pour l'effet de survol */
+        transform: scale(1.05); /* Légère agrandissement */
+      }
+
+      /* Main container */
+      .container {
+        max-width: 900px;
+        margin: 30px auto;
+        padding: 30px;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        text-align: center;
+      }
+
+      .container h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        font-weight: 600;
+        color: #333;
+      }
+
+      .profile-info {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        align-items: center;
+        margin-bottom: 40px;
+      }
+
+      .profile-info img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #ff3333; /* Bordure rouge vif */
+        transition: transform 0.3s ease;
+      }
+
+      .profile-info img:hover {
+        transform: scale(1.05); /* Légère agrandissement au survol */
+      }
+
+      .user-details {
+        text-align: left;
+        flex: 1;
+      }
+
+      .user-details p {
+        font-size: 1rem;
+        margin: 8px 0;
+        color: #555;
+      }
+
+      button {
+        background-color: #ff3333; /* Rouge vif */
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #e60000; /* Rouge foncé */
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="file"] {
+        padding: 12px;
+        font-size: 1rem;
+        width: 100%;
+        margin-bottom: 10px;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+        transition: border-color 0.3s ease;
+      }
+
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      input[type="file"]:focus {
+        border-color: #ff3333; /* Bordure rouge vif au focus */
+      }
+
+      .edit-section {
+        display: none;
+        margin-top: 30px;
+      }
+
+      .edit-section.active {
+        display: block;
+        animation: fadeIn 0.3s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 768px) {
+        .container {
+          padding: 20px;
+        }
+
+        .profile-info {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .user-details {
+          text-align: center;
+        }
+
+        button {
+          padding: 10px 20px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="file"] {
+          padding: 10px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        header h1 {
+          font-size: 1.6rem;
+        }
+
+        .navbar a {
+          padding: 10px 20px;
+          font-size: 0.9rem;
+        }
+
+        .container {
+          padding: 15px;
+        }
+      }
+      footer {
+        background: linear-gradient(
+          90deg,
+          #000000,
+          #7f1d1d
+        ); /* Dégradé de noir vers rouge foncé */
+        color: white;
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9rem;
+        margin-top: 40px;
+      }
+
+      footer p {
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <a href="index.html">Liste des jeux</a>
+      <a href="collection.html">Ma collection</a>
+      <a href="profil.html">Mon profil</a>
+    </div>
+
+    <header>
+      <h1>👤 Mon Profil - GameVault</h1>
+    </header>
+
+    <div class="container">
+      <h2>Bienvenue, <span id="userPseudo">MaxJoueur42</span></h2>
+
+      <div class="profile-info">
+        <img
+          id="profilePic"
+          src="https://i.pravatar.cc/100?img=13"
+          alt="Image de profil"
+        />
+        <div class="user-details">
+          <p><strong>Nom :</strong> <span id="userName">Maxime Durand</span></p>
+          <p>
+            <strong>Pseudo :</strong>
+            <span id="userPseudoText">MaxJoueur42</span>
+          </p>
+          <p>
+            <strong>Email :</strong>
+            <span id="userEmail">maxime@example.com</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Bouton modifier -->
+      <button id="editButton">Modifier mes informations</button>
+
+      <!-- Formulaire de modification (initialement caché) -->
+      <div class="edit-section" id="editSection">
+        <h3>Modifier mes informations</h3>
+        <form id="editForm">
+          <label for="newPseudo">Nouveau Pseudo :</label>
+          <input
+            type="text"
+            id="newPseudo"
+            placeholder="Entrez votre nouveau pseudo"
+          />
+
+          <label for="newEmail">Nouvel Email :</label>
+          <input
+            type="email"
+            id="newEmail"
+            placeholder="Entrez votre nouveau email"
+          />
+
+          <button type="submit">Sauvegarder</button>
+        </form>
+      </div>
+
+      <form id="uploadForm">
+        <label for="imageUpload">Changer l'image de profil :</label>
+        <input type="file" id="imageUpload" accept="image/*" />
+        <button type="submit">Téléverser</button>
+      </form>
+    </div>
+
+    <script>
+      // Récupérer les données du localStorage
+      const loadUserData = () => {
+        const userName = localStorage.getItem("userName") || "Maxime Durand";
+        const userPseudo = localStorage.getItem("userPseudo") || "MaxJoueur42";
+        const userEmail =
+          localStorage.getItem("userEmail") || "maxime@example.com";
+        const profilePic =
+          localStorage.getItem("profilePic") ||
+          "https://i.pravatar.cc/100?img=13";
+
+        document.getElementById("userName").textContent = userName;
+        document.getElementById("userPseudoText").textContent = userPseudo;
+        document.getElementById("userEmail").textContent = userEmail;
+        document.getElementById("userPseudo").textContent = userPseudo;
+        document.getElementById("profilePic").src = profilePic;
+        document.querySelector("h2 span").textContent = userPseudo;
+      };
+
+      // Afficher/Masquer le formulaire de modification
+      document.getElementById("editButton").addEventListener("click", () => {
+        document.getElementById("editSection").classList.toggle("active");
+      });
+
+      // Modifier les informations de l'utilisateur
+      document.getElementById("editForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const newPseudo = document.getElementById("newPseudo").value;
+        const newEmail = document.getElementById("newEmail").value;
+
+        if (newPseudo) localStorage.setItem("userPseudo", newPseudo);
+        if (newEmail) localStorage.setItem("userEmail", newEmail);
+
+        loadUserData();
+        alert("Informations mises à jour !");
+        document.getElementById("editSection").classList.remove("active");
+      });
+
+      // Changer l'image de profil
+      document.getElementById("uploadForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const file = document.getElementById("imageUpload").files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            const imageUrl = event.target.result;
+            localStorage.setItem("profilePic", imageUrl);
+            document.getElementById("profilePic").src = imageUrl;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      // Charger les données au démarrage
+      document.addEventListener("DOMContentLoaded", loadUserData);
+    </script>
+
+    <footer>
+      <div class="footer-content">
+        <p>&copy; 2025 GameVault. Tous droits réservés.</p>
+        <a href="about.html">À propos de nous</a>
+      </div>
+    </footer>
+  </body>
+</html>

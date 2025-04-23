@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ma Collection de Jeux Vidéo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Global settings */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+      margin: 0;
+      padding: 0;
+      color: #1f2937;
+    }
+
+    /* Header with gradient */
+    header {
+      background: linear-gradient(135deg, #000000, #ff3333); /* Dégradé du noir au rouge */
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      margin: 0;
+      font-weight: 600;
+      flex-grow: 1;
+      text-align: center;
+    }
+
+    /* Profile bubble */
+    .profile {
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-bubble {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #374151;
+      padding: 8px 12px;
+      border-radius: 9999px;
+    }
+
+    .profile img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .profile span {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    /* Dropdown Menu */
+    .dropdown {
+      position: absolute;
+      top: 70px;
+      right: 10px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+      z-index: 100;
+      min-width: 160px;
+    }
+
+    .dropdown a {
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #1f2937;
+      border-bottom: 1px solid #eee;
+      transition: background-color 0.2s;
+    }
+
+    .dropdown a:hover {
+      background-color: #f3f4f6;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    /* Section Titles */
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 40px 0 20px;
+      border-left: 4px solid #6366f1;
+      padding-left: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .counter {
+      font-size: 1rem;
+      font-weight: normal;
+      color: #6b7280;
+    }
+
+    /* Grid Layout */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
+      transition: grid-template-columns 0.3s ease;
+    }
+
+    /* Card Style */
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .card-title {
+      padding: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .card button {
+      background-color: #10b981;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .card button:hover {
+      background-color: #059669;
+    }
+
+    .delete-btn {
+      background-color: #ef4444 !important;
+    }
+
+    .delete-btn:hover {
+      background-color: #dc2626 !important;
+    }
+
+    /* Mobile and Tablet responsiveness */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.2rem;
+      }
+
+      .profile-bubble {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+      }
+
+      .grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      }
+
+      .card img {
+        height: 200px;
+      }
+
+      .card-title {
+        font-size: 0.9rem;
+      }
+
+      .card button {
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 15px;
+      }
+
+      header h1 {
+        font-size: 1rem;
+      }
+
+      .profile-bubble {
+        padding: 4px 8px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card img {
+        height: 180px;
+      }
+
+      .card button {
+        font-size: 0.7rem;
+      }
+
+      .delete-btn {
+        font-size: 0.8rem;
+      }
+    }
+    footer {
+  background: linear-gradient(90deg, #000000, #7f1d1d); /* Dégradé de noir vers rouge foncé */
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
+
+footer p {
+  margin: 0;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <h1>🎮 GameVault Collection </h1>
+    <div class="profile" onclick="toggleDropdown()">
+      <div class="profile-bubble">
+        <img src="https://i.pravatar.cc/100?img=13" alt="Profil">
+        
+      </div>
+      <div id="dropdownMenu" class="dropdown">
+        <a href="profil.html">Mon profil</a>
+        <a href="#">Connexion</a>
+        <a href="#">Déconnexion</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Section -->
+  <div class="container">
+    <div class="section-title">
+      📁 Ma collection <span id="gameCount" class="counter">0 jeu</span>
+    </div>
+    <div id="maCollection" class="grid"></div>
+  </div>
+
+  <script>
+    const collection = [];
+    const collectionDiv = document.getElementById("maCollection");
+    const counterSpan = document.getElementById("gameCount");
+    const dropdown = document.getElementById("dropdownMenu");
+
+    function renderCollection() {
+      collectionDiv.innerHTML = "";
+      collection.forEach((jeu, index) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <img src="${jeu.image}" alt="${jeu.titre}">
+          <div class="card-title">${jeu.titre}</div>
+          <button class="delete-btn" onclick="supprimerJeu(${index})">Supprimer</button>
+        `;
+        collectionDiv.appendChild(card);
+      });
+      counterSpan.textContent = `${collection.length} jeu${collection.length > 1 ? 'x' : ''}`;
+    }
+
+    function supprimerJeu(index) {
+      collection.splice(index, 1);
+      renderCollection();
+    }
+
+    function toggleDropdown() {
+      dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
+    }
+
+    window.addEventListener("click", function(e) {
+      if (!e.target.closest(".profile")) {
+        dropdown.style.display = "none";
+      }
+    });
+
+    renderCollection();
+  </script>
+<footer>
+  <div class="footer-content">
+    <p>&copy; 2025 GameVault. Tous droits réservés.</p>
+    <a href="about.html">À propos de nous </a>
+  </div>
+</footer>
+</body>
+</html>

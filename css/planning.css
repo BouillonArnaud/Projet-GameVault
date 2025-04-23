@@ -1,0 +1,135 @@
+/* Style général de la page */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(
+    135deg,
+    #000000,
+    #8b0000
+  ); /* Fond noir avec une touche de rouge sang */
+  color: #f8f9fa; /* Texte clair pour le texte (blanc cassé) */
+  margin: 0;
+  padding: 0;
+}
+
+/* Titre principal */
+h1 {
+  font-size: 3rem;
+  color: #fff; /* Texte blanc pour le titre */
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+/* Style des cartes */
+.card {
+  background-color: rgba(0, 0, 0, 0.8); /* Fond sombre pour les cartes */
+  color: #fff; /* Texte clair dans les cartes */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Image des cartes */
+.card-img-top {
+  border-radius: 10px;
+  height: 250px; /* Hauteur plus grande pour l'image */
+  width: 200px; /* Largeur un peu plus grande pour l'image */
+  object-fit: cover; /* Assure que l'image couvre l'espace sans distorsion */
+  margin: 0 auto; /* Centre l'image horizontalement */
+  display: block; /* Assure que l'image est traitée comme un bloc */
+}
+
+/* Ajout d'une marge entre les cartes */
+.card-body {
+  padding: 10px;
+  text-align: center;
+}
+
+/* Mises en page des colonnes de cartes */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+/* Pour chaque carte dans une colonne */
+.col-md-4 {
+  margin-bottom: 20px;
+}
+
+/* Stylisation des titres des jeux */
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+/* Style pour le texte dans les cartes */
+.card-text {
+  font-size: 1rem;
+}
+
+/* Ajouter des marges autour du conteneur de jeux */
+.container {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+/* Style de la navbar */
+.navbar {
+  background: linear-gradient(135deg, #000000, #8b0000) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff !important;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+.navbar-brand:hover {
+  color: #ff4d4d !important;
+}
+
+.nav-link {
+  color: #f8f9fa !important;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  margin: 0 0.2rem;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ff4d4d !important;
+  transform: translateY(-2px);
+}
+
+.nav-item.active .nav-link {
+  color: #ff4d4d !important;
+  font-weight: bold;
+  border-bottom: 2px solid #ff4d4d;
+}
+
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Style pour le menu déroulant en version mobile */
+@media (max-width: 992px) {
+  .navbar-collapse {
+    background: linear-gradient(135deg, #000000, #8b0000);
+    padding: 1rem;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-item {
+    margin: 0.5rem 0;
+  }
+}

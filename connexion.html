@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connexion</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container p-4">
+      <h2 class="text-center text-black">Connexion</h2>
+      <form id="form-connexion" method="post">
+        <div class="mb-3">
+          <label class="form-label text-black"
+            >Email ou nom d'utilisateur :</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="identifiant"
+            name="identifiant"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label text-black">Mot de passe :</label>
+          <input
+            type="password"
+            class="form-control"
+            id="mot_de_passe"
+            name="mot_de_passe"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">CONNEXION</button>
+        <button type="reset" class="btn btn-secondary">RESET</button>
+        <a href="inscription.html" class="ms-2"
+          >Pas de compte ? Inscrivez-vous</a
+        >
+      </form>
+    </div>
+    <!-- Modal pour les messages -->
+    <div class="modal fade" id="messageModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitle">Message</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="modalBody"></div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/connexion.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>
